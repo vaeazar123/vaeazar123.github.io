@@ -1,0 +1,335 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body	{font-family: '맑은 고딕', 'Apple SD Gothic Neo', sans-serif}
+
+/*공통영역 css*/
+
+.mainFrame {
+    max-width: 828px;
+    min-width: 799px;
+    margin: auto;
+    padding: 0 40px 60px 40px;
+}
+
+.selectSeat, .selectMenu, .selectDate, .selectReservation, .information {
+    margin-bottom: 30px;
+}
+
+.selectTitle, .informationTitle{
+    border-top: 2px solid #2B2725;
+    background: #F7F7F7;
+    padding: 10px;
+}
+
+.selectPublicContain {
+    flex: auto;
+    display: flex;
+    list-style: none;
+}
+
+.settingVerticalAlign {
+    vertical-align: middle;
+}
+
+.fa-caret-up:hover, .fa-caret-down:hover {
+    cursor: pointer;
+}
+
+/*좌석 선택 css*/
+
+.selectSeatContain {
+    border: 1px solid #d9d9d9;
+}
+
+.selectSeatItem{
+    flex-grow: 1;
+    text-align: center;
+    padding: 12px 9px 21px 9px;
+    color: #4d4d4d;
+    border-right: 1px solid #d9d9d9;
+}
+
+.selectSeatItem:last-child {
+    border-right: 0px;
+}
+
+.selectSeatItem:hover {
+    cursor: pointer;
+    background-color: #ffbc80;
+}
+
+.selectSeatItem img {
+    max-width: 140px;
+    min-height: 100px;
+    margin-bottom: 10px;
+}
+
+/*메뉴 선택 css*/
+
+.selectMenuContain {
+    padding: 18px;
+}
+
+.menuCheckBox {
+    padding-bottom: 4px;
+    display: table-cell;
+}
+
+.selectMenuCheckBox {
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.selectMenuText {
+    vertical-align: middle;
+}
+
+.selectMenuItem img {
+    max-width: 136px;
+    min-height: 95px;
+    margin-bottom: 10px;
+}
+
+.selectMenuItem{
+    flex-grow: 1;
+    text-align: center;
+    padding: 5px 9px 10px 9px;
+    color: #4d4d4d;
+    border: 1px solid #d9d9d9;
+    font-size: 0.8em;
+}
+
+.menuCountContain {
+    flex: auto;
+    display: flex;
+}
+
+.menuPrice {
+    flex-grow: 10;
+    max-width: 90px;
+    padding: 4px 0;
+}
+
+.menuClickContain {
+    flex: auto;
+    display: flex;
+    flex-grow: 1;
+}
+
+.menuInputFlex {
+    flex-grow: 10;
+    max-width: 20px;
+    text-align: center;
+}
+
+.menuUpDownContain {
+    flex-grow: 3;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuUpDownContain span{
+    flex-grow: 1;
+    border: 1px solid #d9d9d9;
+}
+
+.menuDetailButton {
+    border: 1px solid #d9d9d9;
+    background: #fafafa;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.menuDetailButton:hover {
+    cursor: pointer;
+    background: #cbcbcb;
+}
+
+.menuWarning {
+    font-size: 0.8em;
+    font-family: "Nanum Gothic";
+    color: #464646;
+}
+
+/*날짜 시간 타임 선택 css*/
+
+.selectDateFrameSetting {
+    flex: auto;
+    display: flex;
+    border: 1px solid #d9d9d9;
+    padding: 20px 0 20px 0;
+}
+
+.selectDateFlexSetting {
+    flex: 1;
+}
+
+.selectDateCal {
+    border-right: 1px solid #d9d9d9;
+    text-align: center;
+}
+
+.selectDateCal div {
+    margin: auto;
+}
+
+.selectTimeTable {
+    vertical-align: middle;
+    font-family: "Nanum Gothic";
+    color: #464646;
+    font-size: 0.8em;
+    display: inline-block;
+    text-align: center;
+}
+
+.selectTime thead tr th{
+    padding: 10px;
+    margin: 0px;
+}
+
+.timeClickContain {
+    display: flex;
+    flex: auto;
+}
+
+.timeInputFlex {
+    flex-grow: 10;
+    max-width: 30px;
+    text-align: center;
+}
+
+.timeClickContainMiddleSetting {
+    display: inline-block;
+}
+
+.timeUpDownContain {
+    flex-grow: 1;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeUpDownContain span{
+    flex-grow: 1;
+    border: 1px solid #d9d9d9;
+    width: 20px;
+    text-align: center;
+}
+
+.selectTime thead tr td {
+    padding-bottom: 10px;
+}
+
+/*예약 정보 css*/
+
+#reservationName {
+    width:180px;
+}
+
+.reservationTable label{
+    vertical-align: middle;
+    font-family: "Nanum Gothic";
+    color: #464646;
+    font-size: 0.8em;
+}
+
+.reservationTable tr td {
+    padding: 5px 0;
+}
+
+.reservationInputStyle {
+    padding: 1px 0 1px 10px;
+    height: 21px;
+    line-height: 18px;
+    border: 1px solid #BFBFBF;
+    color: #585858;
+    font-family: "Nanum Gothic";
+}
+
+.reservationSelectStyle {
+    padding: 3px 3px 3px 0;
+    border: 1px solid #BFBFBF;
+    font-family: "Nanum Gothic";
+    color: #585858;
+}
+
+/*예약 정보 확인 css*/
+
+.informationContain {
+    padding: 10px 10px 0px 10px;
+}
+
+.informationTitle img {
+    width: 20px;
+}
+
+.informationTable {
+    font-size: 0.9em;
+    font-family: "Nanum Gothic";
+    color: #464646;
+}
+
+.informationTotalPrice {
+    font-size: 1.2em;
+    color: #000000;
+    text-align: right;
+}
+
+.iformationTotalPriceSetting {
+    width: 250px;
+    color: #560a0c;
+    float: right;
+}
+
+.imformValue {
+    margin-left: 10px;
+    color: #ff3a3f;
+    font-weight: 700;
+}
+
+.orderPrice td{
+    padding-top: 10px;
+}
+
+/*주의사항 css*/
+
+.finalWarning {
+    list-style: none;
+    padding: 10px 0px;
+    font-size: 0.9em;
+    font-family: "Nanum Gothic";
+    color: #464646;
+}
+
+.checkIcon {
+    width: 20px;
+}
+
+.reservationCompleteBtn {
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    padding: 0 0 0 0;
+    line-height: 50px;
+    background-color: #3c3533;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 나눔고딕,"Nanum Gothic",Gulim,"굴림",sans-serif;
+    float: right;
+    margin-top: 20px;
+}
+
+.reservationCompleteBtn:hover {
+    background-color: #887773;
+}
+
