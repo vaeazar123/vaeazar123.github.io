@@ -98,10 +98,6 @@
                 }
             });
             
-            $('.selectMenuCheckBox').click(function(){
-                
-            });
-            
             $('[class$="timeDownBtn"]').click(function() {
                 if($(this).parents('tr').find('.timeClickEvent').hasClass('isChecked')){
                     let getCount = $(this).closest('div').prev().val();
@@ -120,13 +116,224 @@
                     }
                 }
             });
+            
+            $('.selectMenuCheckBox').click(function(){
+                let getCount = $('#menuLiCount').val();
+                let getNumber = $(this).val();
+                let total = 0;
+                let minus = 0;
+                getNumber = getNumber.split('selectMenu');
+                const getClass = $(this).val();
+                let getParent = $(this).parents('li').attr('class').split(' ');
+                getParent = '.' + getParent[getParent.length-1];
+                let addLi = document.createElement('li');
+                addLi.className = getClass + " informationMenuListRow";
+                addLi.innerHTML = '<span class="menuListMenuName"> ' +
+                    $(getParent).find('.selectMenuText').text() +
+                    ' </span><span class="menuListMenuNum">0개</span><span class="menuListOption"><span class="menuListMenuPrice">0</span>원</span>';
+                if($(this).hasClass('isChecked')){
+                    let getPrice = $('.' + $(this).val()).find('.menuListMenuPrice').text();
+                    minus = unDot(getPrice);
+                    total = unDot($('.getInformationTotalPrice').text());
+                    getPrice = total - minus;
+                    $('.getInformationTotalPrice').text(getDot(getPrice));
+                    $(this).removeClass('isChecked');
+                    getCount = Number(getCount) - 1;
+                    $('#menuLiCount').val(getCount);
+                    $(this).parents('li').find('#menuCount' + getNumber[1]).val('0');
+                    $('.' + getClass).remove();
+                } else {
+                    $(this).addClass('isChecked');
+                    getCount = Number(getCount) + 1;
+                    $('#menuLiCount').val(getCount);
+                    document.getElementById('informationMenuList').appendChild(addLi);
+                }
+            });
+            
+            $('[class$="menuUpBtn"]').click(function() {
+                let getParent = $(this).parents('li').attr('class').split(' ');
+                let totalPrice = 0;
+                let totalSepPrice = 0;
+                let totalSplitPrice = 0;
+                let totalgetPrice = '';
+                let temp = '';
+                let tempArray = new Array();
+                let arrayCount = 0;
+                getParent = '.' + getParent[getParent.length-1];
+                const getClass = '.' + $(getParent).find('.selectMenuCheckBox').val();
+                let getNumber = $(getClass).find('.menuListMenuNum').text();
+                let getPrice = $(getParent).find('.menuPrice').text();
+                getNumber = getNumber.substring(0,getNumber.length-1);
+                getPrice = getPrice.substring(0,getPrice.length-1).split(',');
+                for(let i = 0; i < getPrice.length; i++) {
+                    temp = temp + getPrice[i];
+                }
+                getPrice = temp;
+                
+                if($(this).parents('li').find('.selectMenuCheckBox').hasClass('isChecked')){
+                    let getCount = $(this).closest('div').prev().val();
+                    if(getCount == 10) {
+                        alert("메뉴 상한은 10개입니다.");
+                    } else {
+                        getCount = Number(getCount) + 1;
+                        $(this).closest('div').prev().val(getCount);
+                        getNumber = Number(getNumber) + 1;
+                        $(getClass).find('.menuListMenuNum').text(getNumber + "개");
+                        
+                        $(getClass).find('.menuListMenuPrice').text(getDot(getPrice*getCount));
+                        totalSepPrice = $('#informationMenuList>li[class^="selectMenu"]').attr('class');
+                        totalSepPrice = totalSepPrice.substring(10,totalSepPrice.length);
+                        for(let i = 0; i < $('#informationMenuList>li[class^="selectMenu"]').length; i++) {
+                            temp = 0;
+                            arrayCount = 0;
+                            for(h = 0; $('.selectMenu' + temp).find('.menuListMenuPrice').text() == ''; h++) {
+                                if($('.selectMenu' + temp).find('.menuListMenuPrice').text() == '0')
+                                    break;
+                                temp = (Number(temp) + 1);
+                                if(tempArray[arrayCount] == temp) {
+                                    for(;tempArray[arrayCount] == temp;) {
+                                        temp = (Number(temp) + 1);
+                                        arrayCount = Number(arrayCount) + 1;
+                                    }
+                                }
+                            }
+                            tempArray.push(temp);
+                            totalSplitPrice = $('.selectMenu' + temp).find('.menuListMenuPrice').text();
+                            totalSplitPrice = totalSplitPrice.split(',');
+                            for(let j = 0; j < totalSplitPrice.length; j++) {
+                                totalgetPrice += totalSplitPrice[j];
+                            }
+                            totalPrice = totalPrice + Number(totalgetPrice);
+                            totalgetPrice = '';
+                            temp = Number(temp) + 1;
+                        }
+                        $('.getInformationTotalPrice').text(getDot(totalPrice));
+                    }
+                }
+            });
+            
+            $('[class$="menuDownBtn"]').click(function() {
+                let getParent = $(this).parents('li').attr('class').split(' ');
+                let totalPrice = 0;
+                let totalSepPrice = 0;
+                let totalSplitPrice = 0;
+                let totalgetPrice = '';
+                let temp = '';
+                let tempArray = new Array();
+                let arrayCount = 0;
+                getParent = '.' + getParent[getParent.length-1];
+                const getClass = '.' + $(getParent).find('.selectMenuCheckBox').val();
+                let getNumber = $(getClass).find('.menuListMenuNum').text();
+                let getPrice = $(getParent).find('.menuPrice').text();
+                getNumber = getNumber.substring(0,getNumber.length-1);
+                getPrice = getPrice.substring(0,getPrice.length-1).split(',');
+                for(let i = 0; i < getPrice.length; i++) {
+                    temp = temp + getPrice[i];
+                }
+                getPrice = temp;
+                if($(this).parents('li').find('.selectMenuCheckBox').hasClass('isChecked')){
+                    let getCount = $(this).closest('div').prev().val();
+                    if(getCount == 0) {
+                        alert("메뉴가 0개 입니다.");
+                    } else {
+                        getCount = Number(getCount) - 1;
+                        $(this).closest('div').prev().val(getCount);
+                        getNumber = Number(getNumber) - 1;
+                        $(getClass).find('.menuListMenuNum').text(getNumber + "개");
+                        
+                        $(getClass).find('.menuListMenuPrice').text(getDot(getPrice*getCount));
+                        totalSepPrice = $('#informationMenuList>li[class^="selectMenu"]').attr('class');
+                        totalSepPrice = totalSepPrice.substring(10,totalSepPrice.length);
+                        for(let i = 0; i < $('#informationMenuList>li[class^="selectMenu"]').length; i++) {
+                            temp = 0;
+                            arrayCount = 0;
+                            for(h = 0; $('.selectMenu' + temp).find('.menuListMenuPrice').text() == ''; h++) {
+                                if($('.selectMenu' + temp).find('.menuListMenuPrice').text() == '0')
+                                    break;
+                                temp = (Number(temp) + 1);
+                                if(tempArray[arrayCount] == temp) {
+                                    for(;tempArray[arrayCount] == temp;) {
+                                        temp = (Number(temp) + 1);
+                                        arrayCount = Number(arrayCount) + 1;
+                                    }
+                                }
+                            }
+                            tempArray.push(temp);
+                            totalSplitPrice = $('.selectMenu' + temp).find('.menuListMenuPrice').text();
+                            totalSplitPrice = totalSplitPrice.split(',');
+                            for(let j = 0; j < totalSplitPrice.length; j++) {
+                                totalgetPrice += totalSplitPrice[j];
+                            }
+                            totalPrice = totalPrice + Number(totalgetPrice);
+                            totalgetPrice = '';
+                            temp = Number(temp) + 1;
+                        }
+                        $('.getInformationTotalPrice').text(getDot(totalPrice));
+                    }
+                }
+            });
+            
+            $('#reservationEmailSelect').change(function() {
+               if($(this).val() != 'self') {
+                   $('#reservationEmailDomain').val($(this).val());
+               } else {
+                   $('#reservationEmailDomain').val('');
+               }
+            });
         });
+        
+        function getDot(sendParam) {
+            let realPrice = 0;
+            let dotCount = 0;
+            let sepPrice = '';
+            let zeroPlus = '';
+            realPrice = sendParam;
+            dotCount = parseInt(String(realPrice).length/3);
+
+            if(parseInt(String(realPrice).length%3) != 0) {
+                for (i = 0; i < dotCount; i++) {
+                    if(String(realPrice%1000).length == 1) {
+                        zeroPlus = '00' + realPrice%1000;
+                    } else if(String(realPrice%1000).length == 2) {
+                        zeroPlus = '0' + realPrice%1000;
+                    } else {
+                        zeroPlus = realPrice%1000;
+                    }
+                    sepPrice = ',' + zeroPlus + sepPrice;
+                    realPrice = parseInt(realPrice / 1000);
+                }
+                sepPrice = realPrice + sepPrice;
+            } else {
+                for (i = 0; i < dotCount; i++) {
+                    if(String(realPrice%1000).length == 1) {
+                        zeroPlus = '00' + realPrice%1000;
+                    } else if(String(realPrice%1000).length == 2) {
+                        zeroPlus = '0' + realPrice%1000;
+                    } else {
+                        zeroPlus = realPrice%1000;
+                    }
+                    sepPrice = ',' + zeroPlus + sepPrice;
+                    realPrice = parseInt(realPrice / 1000);
+                }
+                sepPrice = sepPrice.substring(1,sepPrice.length);
+            }
+            
+            return sepPrice;
+        }
+        
+        function unDot(getPrice) {
+            let temp = '';
+            getPrice = getPrice.split(',');
+            for(let i = 0; i < getPrice.length; i++) {
+                temp = temp + getPrice[i];
+            }
+            return temp;
+        }
     </script>
 </head>
 <body>
-
-<!--헤더 시작-->
     <div class="mainFrame">
+        <input type="hidden" id="menuLiCount" value="0">
         <div class="selectSeat">
             <h3 class="h3title selectTitle">1 > 좌석 선택</h3>
             <ul class="selectSeatContain selectPublicContain">
@@ -264,7 +471,7 @@
             <ul class="selectMenuContain selectPublicContain">
                 <li class="selectMenuItem menu1">
                     <div class="menuCheckBox">
-                        <input id="selectMenu1" class="selectMenuCheckBox" type="checkbox" value="selectMenu1">
+                        <input id="selectMenuID1" class="selectMenuCheckBox" type="checkbox" value="selectMenu1">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/onemanTable.PNG" alt="1인 테이블">
@@ -273,8 +480,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount1" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp1"></span>
-                                <span class="fas fa-caret-down menuDown1"></span>
+                                <span class="fas fa-caret-up menuUp1 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown1 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -285,7 +492,7 @@
                 </li>
                 <li class="selectMenuItem menu2">
                     <div class="menuCheckBox">
-                        <input id="selectMenu2" class="selectMenuCheckBox" type="checkbox" value="selectMenu2">
+                        <input id="selectMenuID2" class="selectMenuCheckBox" type="checkbox" value="selectMenu2">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/2or4Table.PNG" alt="2인 4인 테이블">
@@ -294,8 +501,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount2" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp2"></span>
-                                <span class="fas fa-caret-down menuDown2"></span>
+                                <span class="fas fa-caret-up menuUp2 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown2 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -306,7 +513,7 @@
                 </li>
                 <li class="selectMenuItem menu3">
                     <div class="menuCheckBox">
-                        <input id="selectMenu3" class="selectMenuCheckBox" type="checkbox" value="selectMenu3">
+                        <input id="selectMenuID3" class="selectMenuCheckBox" type="checkbox" value="selectMenu3">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/outTable.PNG" alt="4인 야외 테이블">
@@ -315,8 +522,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount3" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp3"></span>
-                                <span class="fas fa-caret-down menuDown3"></span>
+                                <span class="fas fa-caret-up menuUp3 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown3 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -327,7 +534,7 @@
                 </li>
                 <li class="selectMenuItem menu4">
                     <div class="menuCheckBox">
-                        <input id="selectMenu4" class="selectMenuCheckBox" type="checkbox" value="selectMenu4">
+                        <input id="selectMenuID4" class="selectMenuCheckBox" type="checkbox" value="selectMenu4">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/familyTable.PNG" alt="6인 이상 테이블">
@@ -336,8 +543,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount4" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp4"></span>
-                                <span class="fas fa-caret-down menuDown4"></span>
+                                <span class="fas fa-caret-up menuUp4 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown4 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -348,7 +555,7 @@
                 </li>
                 <li class="selectMenuItem seat5">
                     <div class="menuCheckBox">
-                        <input id="selectMenu5" class="selectMenuCheckBox" type="checkbox" value="selectMenu5">
+                        <input id="selectMenuID5" class="selectMenuCheckBox" type="checkbox" value="selectMenu5">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/partyRoom.PNG" alt="파티룸">
@@ -357,8 +564,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount5" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp5"></span>
-                                <span class="fas fa-caret-down menuDown5"></span>
+                                <span class="fas fa-caret-up menuUp5 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown5 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -371,7 +578,7 @@
             <ul class="selectMenuContain selectPublicContain">
                 <li class="selectMenuItem menu6">
                     <div class="menuCheckBox">
-                        <input id="selectMenu6" class="selectMenuCheckBox" type="checkbox" value="selectMenu6">
+                        <input id="selectMenuID6" class="selectMenuCheckBox" type="checkbox" value="selectMenu6">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/onemanTable.PNG" alt="1인 테이블">
@@ -380,8 +587,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount6" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp6"></span>
-                                <span class="fas fa-caret-down menuDown6"></span>
+                                <span class="fas fa-caret-up menuUp6 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown6 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -392,7 +599,7 @@
                 </li>
                 <li class="selectMenuItem menu7">
                     <div class="menuCheckBox">
-                        <input id="selectMenu7" class="selectMenuCheckBox" type="checkbox" value="selectMenu7">
+                        <input id="selectMenuID7" class="selectMenuCheckBox" type="checkbox" value="selectMenu7">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/2or4Table.PNG" alt="2인 4인 테이블">
@@ -401,8 +608,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount7" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp7"></span>
-                                <span class="fas fa-caret-down menuDown7"></span>
+                                <span class="fas fa-caret-up menuUp7 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown7 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -413,17 +620,17 @@
                 </li>
                 <li class="selectMenuItem menu8">
                     <div class="menuCheckBox">
-                        <input id="selectMenu8" class="selectMenuCheckBox" type="checkbox" value="selectMenu8">
+                        <input id="selectMenuID8" class="selectMenuCheckBox" type="checkbox" value="selectMenu8">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/outTable.PNG" alt="4인 야외 테이블">
                     <div class="menuCountContain">
-                        <p class="menuPrice">54,000원</p>
+                        <p class="menuPrice">540,000원</p>
                         <div class="menuClickContain">
-                            <input id="menuCount3" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
+                            <input id="menuCount8" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp8"></span>
-                                <span class="fas fa-caret-down menuDown8"></span>
+                                <span class="fas fa-caret-up menuUp8 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown8 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -434,7 +641,7 @@
                 </li>
                 <li class="selectMenuItem menu9">
                     <div class="menuCheckBox">
-                        <input id="selectMenu9" class="selectMenuCheckBox" type="checkbox" value="selectMenu9">
+                        <input id="selectMenuID9" class="selectMenuCheckBox" type="checkbox" value="selectMenu9">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/familyTable.PNG" alt="6인 이상 테이블">
@@ -443,8 +650,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount9" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp9"></span>
-                                <span class="fas fa-caret-down menuDown9"></span>
+                                <span class="fas fa-caret-up menuUp9 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown9 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -455,7 +662,7 @@
                 </li>
                 <li class="selectMenuItem seat10">
                     <div class="menuCheckBox">
-                        <input id="selectMenu10" class="selectMenuCheckBox" type="checkbox" value="selectMenu10">
+                        <input id="selectMenuID10" class="selectMenuCheckBox" type="checkbox" value="selectMenu10">
                         <span class="selectMenuText">참치 세트</span>
                     </div>
                     <img src="images/partyRoom.PNG" alt="파티룸">
@@ -464,8 +671,8 @@
                         <div class="menuClickContain">
                             <input id="menuCount10" class="menuInputFlex" type="text" value="0" readonly="readonly"/>
                             <div class="menuUpDownContain">
-                                <span class="fas fa-caret-up menuUp10"></span>
-                                <span class="fas fa-caret-down menuDown10"></span>
+                                <span class="fas fa-caret-up menuUp10 menuUpBtn"></span>
+                                <span class="fas fa-caret-down menuDown10 menuDownBtn"></span>
                             </div>
                         </div>
                     </div>
@@ -477,77 +684,6 @@
             </ul>
             <span class="menuWarning">※ 온라인에서 예약하실 수 있는 메뉴는 한정적입니다. 원하시는 메뉴가 없을시, 해당 지점으로 직접 전화하셔서 예약해 주시기 바랍니다.</span>
         </div>
-        <div class="selectReservation">
-            <h3 class="h3title selectTitle">4 > 예약 고객 정보</h3>
-            <div class="reservationContain">
-                <table class="reservationTable" summary="예약고객 정보입력하는곳으로 이름, 연락처, 이메일, 남기실말씀을 적어줍니다.">
-                <colgroup>
-                    <col width="13%"><col width="40%"><col width="12%"><col width="35%">
-                </colgroup>
-                <tbody>
-                    <tr>
-                        <th scope="row"><span class="bul01"><label for="reservationName">이름</label></span></th>
-                        <td>
-                            <input type="text" class="reservationInputStyle" id="reservationName" name="reservationName" value="" maxlength="10" title="예약고객 이름 입력" onclick="" onkeyup="" onkeypress="">
-                        </td>
-                        <th scope="row"><span class="bul01">
-                            <label for="input_custom_tel">연락처</label>
-                            </span>
-                        </th>
-                        <td>
-                            <select class="reservationSelectStyle" id="mobile1" title="예약고객 연락처 앞자리 선택" style="width:74px" name="mobile1" onclick="">
-                                <option value="010">010</option>
-                                <option value="011">011</option>
-                                <option value="016">016</option>
-                                <option value="017">017</option>
-                                <option value="018">018</option>
-                                <option value="019">019</option>
-                            </select> - 
-                            <input type="text" class="reservationInputStyle" id="mobile2" name="mobile2" value="" style="width:54px" title="예약고객 연락처 가운데자리 입력" maxlength="4" onkeyup="isNumber(this);" onclick=""> - 
-                            <input type="text" class="reservationInputStyle" id="mobile3" name="mobile3" value="" style="width:54px" title="예약고객 연락처 뒷자리 입력" maxlength="4" onkeyup="" onclick="">
-                        </td>
-                    </tr>
-                    <tr id="email_area">
-                        <th scope="row">
-                            <span class="bul01">
-                                <label for="input_custom_email">이메일</label>
-                            </span>
-                        </th>
-                        <td colspan="3">
-                            <input type="text" class="reservationInputStyle" id="email_1" name="email_1" value="" style="width:118px" title="예약고객 이메일 아이디 입력" maxlength="25" onclick="" onkeyup="" onkeypress=""> @ 
-                            <input type="text" class="reservationInputStyle" name="email_txt" id="email_txt" value="" style="width:109px" title="예약고객 이메일 도메인 직접입력" maxlength="50" onclick="" onkeyup="" onkeypress="">
-                            <select name="email_2"  class="reservationSelectStyle" id="email_2" title="예약고객 이메일 도메인 선택" style="width:138px" onchange="" onclick="">
-                                <option value="self">선택하세요</option>
-                                <option value="naver.com">naver.com</option>
-                                <option value="daum.net">daum.net</option>
-                                <option value="hotmail.com">hotmail.com</option>
-                                <option value="msn.com">msn.com</option>
-                                <option value="nate.com">nate.com</option>
-                                <option value="yahoo.co.kr">yahoo.co.kr</option>
-                                <option value="gmail.com">gmail.com</option>
-                                <option value="self">직접입력</option>
-                            </select>
-                        </td>
-                    </tr>
-                    <tr id="order_msg1_area">
-                        <th scope="row" class="last">
-                            <span class="bul01">
-                                <label for="input_ment">남기실 말씀</label>
-                            </span>
-                        </th>
-                        <td colspan="3" class="last">
-                            <textarea class="reservationInputStyle" id="order_msg" cols="10" rows="10" style="width:673px;height:78px" title="예약고객 남기실 말씀을 입력해 주세요" name="order_msg" onkeyup="" onkeypress="" maxlength="150" onclick=""></textarea>
-                            <br>
-                        </td>
-                    </tr>
-                </tbody>
-                <input type="hidden" id="getSelectedSeat" readonly="readonly" />
-                <input type="hidden" id="getSelectedDate" readonly="readonly" />
-                <input type="hidden" id="getSelectedTime" readonly="readonly" />
-                <input type="hidden" id="getSelectedTableCount" readonly="readonly" />
-                </table>
-            </div>
-        </div>
         <div class="information">
             <h3 class="h3title informationTitle"><img src="./images/checked.png"> 예약 정보 확인</h3>
             <div class="informationContain">
@@ -556,7 +692,7 @@
                         <col width="244"><col width="234"><col width="207"><col width="141">
                     </colgroup>
                     <tbody>
-                        <tr>
+                        <tr class="informationSecondTitle">
                             <td class="informationSeat">
                             <span class="informationSeatTitle"><i class="fas fa-chair"></i>&nbsp;좌석
                                 <span class="imformValue" id="getInformationSeat"></span>
@@ -579,8 +715,8 @@
                             </td>
                         </tr>
                         <tr style="" id="informationMenu">
-                            <td colspan="4" class="">
-                                <ul class="informationMenuList">
+                            <td colspan="4" class="informationMenuListContain">
+                                <ul class="informationMenuListSetting" id="informationMenuList">
                                 </ul>
                             </td>
                         </tr>
@@ -596,6 +732,77 @@
                             </td>
                         </tr>
                     </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="selectReservation">
+            <h3 class="h3title selectTitle">4 > 예약 고객 정보</h3>
+            <div class="reservationContain">
+                <table class="reservationTable" summary="예약고객 정보입력하는곳으로 이름, 연락처, 이메일, 남기실말씀을 적어줍니다.">
+                <colgroup>
+                    <col width="13%"><col width="40%"><col width="12%"><col width="35%">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <th scope="row"><span><label for="reservationName">이름</label></span></th>
+                        <td>
+                            <input type="text" class="reservationInputStyle" id="reservationName" name="reservationName" value="" maxlength="10" title="예약고객 이름 입력" onclick="" onkeyup="" onkeypress="">
+                        </td>
+                        <th scope="row"><span>
+                            <label for="reservationMobile2">연락처</label>
+                            </span>
+                        </th>
+                        <td>
+                            <select class="reservationSelectStyle" id="reservationMobile1" title="예약고객 연락처 앞자리 선택" style="width:74px" name="reservationMobile1" onclick="">
+                                <option value="010">010</option>
+                                <option value="011">011</option>
+                                <option value="016">016</option>
+                                <option value="017">017</option>
+                                <option value="018">018</option>
+                                <option value="019">019</option>
+                            </select> - 
+                            <input type="text" class="reservationInputStyle" id="reservationMobile2" name="reservationMobile2" value="" style="width:54px" title="예약고객 연락처 가운데자리 입력" maxlength="4" onkeyup="" onclick=""> - 
+                            <input type="text" class="reservationInputStyle" id="reservationMobile3" name="reservationMobile3" value="" style="width:54px" title="예약고객 연락처 뒷자리 입력" maxlength="4" onkeyup="" onclick="">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <span>
+                                <label for="reservationEmailID">이메일</label>
+                            </span>
+                        </th>
+                        <td colspan="3">
+                            <input type="text" class="reservationInputStyle" id="reservationEmailID" name="reservationEmailID" value="" style="width:118px" title="예약고객 이메일 아이디 입력" maxlength="25" onclick="" onkeyup="" onkeypress=""> @ 
+                            <input type="text" class="reservationInputStyle" name="reservationEmailDomain" id="reservationEmailDomain" value="" style="width:109px" title="예약고객 이메일 도메인 직접입력" maxlength="50" onclick="" onkeyup="" onkeypress="">
+                            <select name="reservationEmailSelect"  class="reservationSelectStyle" id="reservationEmailSelect" title="예약고객 이메일 도메인 선택" style="width:138px" onchange="" onclick="">
+                                <option value="self">선택하세요</option>
+                                <option value="naver.com">naver.com</option>
+                                <option value="daum.net">daum.net</option>
+                                <option value="hotmail.com">hotmail.com</option>
+                                <option value="msn.com">msn.com</option>
+                                <option value="nate.com">nate.com</option>
+                                <option value="yahoo.co.kr">yahoo.co.kr</option>
+                                <option value="gmail.com">gmail.com</option>
+                                <option value="self">직접입력</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            <span>
+                                <label for="reservationMessege">남기실 말씀</label>
+                            </span>
+                        </th>
+                        <td colspan="3" class="last">
+                            <textarea class="reservationInputStyle" id="reservationMessege" cols="10" rows="10" style="width:673px;height:78px" title="예약고객 남기실 말씀을 입력해 주세요" name="reservationMessege" onkeyup="" onkeypress="" maxlength="150" onclick=""></textarea>
+                            <br>
+                        </td>
+                    </tr>
+                </tbody>
+                <input type="hidden" id="getSelectedSeat" readonly="readonly" />
+                <input type="hidden" id="getSelectedDate" readonly="readonly" />
+                <input type="hidden" id="getSelectedTime" readonly="readonly" />
+                <input type="hidden" id="getSelectedTableCount" readonly="readonly" />
                 </table>
             </div>
         </div>
