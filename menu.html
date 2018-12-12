@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>샘플</title>
+    <!- 반응형을 사용하기 위한 것->
+    <meta name="viewport" content="width=device-width">
+    
+    <!--<link rel="stylesheet" href="./css/grid-guide.css">-->
+    <link rel="stylesheet" href="./css/menu.css">
+    <script src="./js/jquery.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.packageListClick').click(function(){
+                if($(this).closest('.packageList').hasClass('on')){
+                } else if($('.packageList').not($(this).closest('.packageList')).hasClass('on')) {
+                    $('.packageList').not($(this).closest('.packageList')).removeClass('on');
+                    $(this).closest('.packageList').addClass('on');
+                }
+            }); 
+            
+            $('.star').remove();
+        });
+    </script>
+</head>
+<body>
+    <div class="mainFrame">
+        <div class="packageContain">
+            <ul class="packageListWrap">
+               
+                <li class="packageList on">
+                    <a class="packageListClick" href="javascript:;">백리향
+                        <strong>
+                            <font style="font-size:10pt;">
+                            Merry Christmas &amp; Farewell
+                            </font>
+                        </strong>
+                    </a>
+                    <div class="packageListImageBox" style="display:block;">
+                        <a class="packageListImage" href="javascript:;">
+                            <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000318190001/10000318190001_3.jpg" alt="배너" style="width:826px;height:293px">
+                        </a>
+                    </div>
+                </li>
+
+                <li class="packageList">
+                    <a class="packageListClick" href="javascript:;">뷔페 파빌리온
+                        <strong><font style="font-size:10pt;">
+                            Enjoy 63
+                        </font></strong>
+                    </a>
+                    <div class="packageListImageBox" style="">
+                        <a class="packageListImage" href="javascript:;">
+                            <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000227580001/10000227580001_3.jpg" alt="Enjoy 63(평일 저녁&amp;주말) 배너" style="width:826px;height:293px">
+                        </a>
+                    </div>
+                </li>
+
+                <li class="packageList">
+                    <a class="packageListClick" href="javascript:;">백리향
+                        <strong><font style="font-size:10pt;">
+                            더 로맨틱 (The Romantic)
+                        </font></strong>
+                    </a>
+                    <div class="packageListImageBox" style="">
+                        <a class="packageListImage" href="javascript:;">
+                            <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000111030052/10000111030052_3.jpg" alt="더 로맨틱 패키지 썸네일" style="width:826px;height:293px">
+                        </a>
+                    </div>
+                </li>
+
+                <li class="packageList last">
+                    <a class="packageListClick" href="javascript:;">슈치쿠
+                        <strong><font style="font-size:10pt;">
+                            사랑 愛
+                        </font></strong>
+                    </a>
+                    <div class="packageListImageBox" style="">
+                        <a class="packageListImage" href="javascript:;">
+                            <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000074380001/10000074380001_3.jpg" alt="58층 일식당 슈치쿠의 사랑애 패키지" style="width:826px;height:293px">
+                        </a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        
+        <div class="bx_list_type01">
+					
+            <div class="list_type01">
+                <a class="clfix fl" href="http://www.63restaurant.co.kr/reservation/packageDetail.r63?cPage=1&amp;egood_cd=10000074380001">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000074380001/10000074380001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [58F/슈치쿠] 
+                            <strong>사랑 愛</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                슈치쿠 코스 식사(일식) + 와인 2잔 + 이벤트 + 테이블 장식 + 프라이빗 룸 제공
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(5건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>185,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="사랑 愛 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000082790001/10000082790001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [58F/슈치쿠] 
+                            <strong>연인 愛</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                슈치쿠 코스 식사(일식) + 와인 1 병 + 이벤트 + 프라이빗 룸 제공 + XYSTUM 꽃다발
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>275,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="연인 愛 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/31120181003001/31120181003001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [58F/터치더스카이] 
+                            <strong>Touch The Love</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                터치더스카이 코스 식사(양식) + 와인 2잔 + 이벤트 + 테이블 장식 + 프라이빗 룸 제공 + 꼬냑 향의 체리쥬브리
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(18건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>195,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Touch The Love 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/31120192007001/31120192007001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [58F/터치더스카이] 
+                            <strong>럭셔리 프러포즈</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                터치더스카이 코스 식사(양식) + 와인 1병 + 이벤트 + 테이블 장식 + 프라이빗 룸 제공 + 꼬냑 향의 체리쥬브리
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:98.57142857142858%">4.92857142857142857142857142857142857143점</span></span>
+                                </span>
+                                <span>(15건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>275,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="럭셔리 프러포즈 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000223510001/10000223510001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [57F/백리향] 
+                            <strong>스페셜데이</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                백리향 코스 식사(중식) + 둘만을 위한 로맨틱 룸
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(18건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>125,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="스페셜데이 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000111030052/10000111030052_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [57F/백리향] 
+                            <strong>더 로맨틱 (The Romantic)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                백리향 코스식사(중식) + 글라스 와인 + 둘만을 위한 로맨틱 룸
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:94.66666666666667%">4.73333333333333333333333333333333333333점</span></span>
+                                </span>
+                                <span>(18건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>155,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="더 로맨틱 (The Romantic) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000165170001/10000165170001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>로맨틱 비노</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                워킹온더클라우드 코스 식사(양식) + 와인 1병 + XYSTUM 꽃다발 + 미니케익 + 커플좌석 + 이벤트
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(9건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>190,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="로맨틱 비노 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000302080001/10000302080001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>선셋 클라우즈(Sunset Clouds)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                선셋클라우즈 디너 코스 + 테이블 생화 장식 + 폴라로이드
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(3건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>120,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="선셋 클라우즈(Sunset Clouds) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000224530001/10000224530001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>셀러브레이션데이</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                워킹온더클라우드 코스 식사(양식) + 미니케이크 + 창가 좌석 + 이벤트
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:100.0%">5점</span></span>
+                                </span>
+                                <span>(1건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>150,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="셀러브레이션데이 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000217440001/10000217440001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>Enjoy 63(주말 브런치)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                주말 브런치 + 63아트 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>61,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Enjoy 63(주말 브런치) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000217420001/10000217420001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>Enjoy 63(디너)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                루시르 코스 + 63아트 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>125,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Enjoy 63(디너) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000227570001/10000227570001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/63뷔페 파빌리온] 
+                            <strong>Enjoy 63(평일 점심)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                평일 점심 뷔페 + 63아트(전망대) 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>77,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Enjoy 63(평일 점심) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000227580001/10000227580001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/63뷔페 파빌리온] 
+                            <strong>Enjoy 63(평일 저녁&amp;주말)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                평일 저녁 / 주말 뷔페 + 63아트(전망대) 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(1건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>88,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Enjoy 63(평일 저녁&amp;주말) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000305740001/10000305740001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/백리향 싱타이] 
+                            <strong>Enjoy 63</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                옥(玉) 코스 + 63아트 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>37,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="Enjoy 63 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000208030001/10000208030001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>아쿠아플라넷63(주말 브런치)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                주말 브런치 + 아쿠아플라넷63 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>69,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="아쿠아플라넷63(주말 브런치) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000207960001/10000207960001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [59F/워킹온더클라우드] 
+                            <strong>아쿠아플라넷63(디너)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                루시르 코스 + 아쿠아플라넷63 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>130,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="아쿠아플라넷63(디너) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000208060001/10000208060001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/63뷔페 파빌리온] 
+                            <strong>아쿠아플라넷63(평일 점심)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                평일 점심 뷔페 + 아쿠아플라넷63 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>85,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="아쿠아플라넷63(평일 점심) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000208090001/10000208090001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/63뷔페 파빌리온] 
+                            <strong>아쿠아플라넷63(평일 저녁&amp;주말)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                평일 저녁 / 주말 뷔페 + 아쿠아플라넷63 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:80.0%">4점</span></span>
+                                </span>
+                                <span>(3건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>97,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="아쿠아플라넷63(평일 저녁&amp;주말) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000305750001/10000305750001_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/백리향 싱타이] 
+                            <strong>아쿠아플라넷63</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                금(金) 코스 + 아쿠아플라넷63 관람
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>53,000원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="아쿠아플라넷63 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+            <div class="list_type01">
+                <a class="clfix fl" href="javascript:;">
+                    <span class="thumb">
+                        <img src="http://www.63restaurant.co.kr/FileStorage/GOOD/10000317210007/10000317210007_1.jpg" alt="" style="width:180px;height:126px">
+                    </span>
+                    <span class="link_wrap">
+                        <span class="no_ico">
+                            [GF/63뷔페 파빌리온] 
+                            <strong>스토리크루즈 (주중 디너 / 주말 뷔페)</strong>
+                        </span>
+                        <span class="t_con">
+                            <span class="txt">
+                                주중 디너 / 주말 뷔페 + 스토리크루즈 (한강 유람선) 이용권
+
+                            </span>
+                            <span class="star">
+                                <span class="starbox_wrap">
+                                    <span class="star_img star_box"><span class="star_img star_inbox" style="width:0.0%">0점</span></span>
+                                </span>
+                                <span>(0건)</span>
+                            </span>
+                        </span>
+                    </span>
+                </a>
+                <p class="res_value">
+                    <span>
+                        <strong>91,200원</strong>(1인 / VAT포함)
+                    </span>
+                    <a title="스토리크루즈 (주중 디너 / 주말 뷔페) 예약하기" href="javascript:;" class="btn_brown_st09">예약하기</a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
